@@ -1,0 +1,75 @@
+<h2>Add a Burger:</h2>
+
+    <form id="add_burger">
+        <input type="text" id="burger-name" name="name" placeholder="Burger Name">
+        <button type="submit">Submit Burger</button>
+    </form>
+
+<br>
+
+
+<h2>Burgers to Devour:</h2>
+    <ul>
+        {{#each burgers}}
+            {{#unless devoured}}
+                <p id="new-burger">{{id}}. {{burger_name}}
+                <button type="button" class="devour-status" data-id="{{id}}" devoured="true">Devour Burger!</button></p>
+            {{/unless}}
+        {{/each}}
+    </ul>
+      
+
+<h2>Burgers Devoured:</h2>
+   <ul>
+        {{#each burgers}}
+            {{#if devoured}}
+                <p id="eaten">{{id}}. {{burger_name}}</p>
+            {{/if}}
+        {{/each}}
+    </ul>
+    
+{{!-- 
+logic for buttons and database update --}}
+<script>
+    //gets burger name and updates database
+    $("#add_burger").on("submit", function(event) {
+       
+       //stops the default action from happening
+        event.preventDefault();
+        
+        let burger_name = $("#burger-name").val().trim();
+        let new_burger = {burger_name: $("#burger-name").val().trim()}
+
+        $.ajax("/api/burgers", 
+            {
+                type: "POST",
+                data: new_burger
+            }).then(function() 
+                    {
+                        location.reload();
+                    });
+    });
+
+    //button event for devour burger
+    $(".devour-status").on("click", function(event) 
+    {
+        let id = $(this).data("id");
+        let devour_value = $(this).attr("devoured");
+
+        let devour_status = 
+        {
+            devoured: devour_value
+        };
+
+        $.ajax("/api/burgers/" + id, 
+        {
+            type: "PUT",
+            data: devour_status
+        }).then(
+            function() 
+            {
+                location.reload();
+            });
+    });
+
+</script>
