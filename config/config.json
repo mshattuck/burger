@@ -1,14 +1,14 @@
 {
     "development": {
       "username": "root",
-      "password": "",
-      "database": "burgers_sequelize_db",
+      "password": "12345",
+      "database": "burgers_db",
       "host": "127.0.0.1",
       "dialect": "mysql"
     },
     "test": {
       "username": "root",
-      "password": "",
+      "password": "12345",
       "database": "database_test",
       "host": "127.0.0.1",
       "dialect": "mysql"
