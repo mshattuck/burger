@@ -1,5 +1,6 @@
 //dependencies 
 const mysql = require("mysql");
+
 let connection;
 
 //for heroku mysql add-on

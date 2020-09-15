@@ -1,7 +1,6 @@
 const express = require("express");
+const burger_model = require("../models/burgers.js");
 const router = express.Router();
-
-let burger_model = require("../models/burgers.js");
 
 //get burgers stored in db
 router.get("/", function(req, res)
