@@ -16,8 +16,8 @@ app.set("view engine","handlebars");
 //use route to controller
 app.use(routes);
 
-//public assests 
-app.use(express.static("public"));
+//public assests (if I had implimented css)
+//app.use(express.static("public"));
 
 //connect
 app.listen(PORT, function()
