@@ -12,7 +12,6 @@ router.get("/", function(req, res)
         {
             burgers: results
         };
-        console.log(all_burgers);
         res.render("index", all_burgers);
     });
 });
@@ -34,8 +33,6 @@ router.put("/api/burgers/:id", function(req, res)
 {
     //gets the id of the burger to update
     let property = "id = " + req.params.id;
-
-   
 
     //updates burger
     burger_model.updateOne(

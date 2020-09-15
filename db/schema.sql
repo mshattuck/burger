@@ -5,7 +5,7 @@ use burgers_db;
 create table burgers 
 (
     id INT AUTO_INCREMENT NOT NULL,
-    burger_name VARCHAR(50),
+    burger_name VARCHAR(50) NOT NULL,
     devoured boolean default false,
     PRIMARY KEY(id)
 );

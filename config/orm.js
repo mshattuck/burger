@@ -54,6 +54,7 @@ var orm = {
             cb(results);
         });
     },
+
     createOne: function(table, cols, vals, cb) {
         var queryString = "INSERT INTO " + table;
         queryString += " (" + cols.toString() + ") VALUES (";
@@ -62,21 +63,23 @@ var orm = {
 
         connection.query(queryString, vals, function(err, results) {
             if (err) {
-                console.log("insertOne err", err)
+                console.log("insertOne error", err)
                 throw err;
             }
             cb(results);
         })
 
     },
+
     updateOne: function(table, objColVals, condition, cb) {
         var queryString = "UPDATE " + table + " SET ";
         queryString += objToSql(objColVals) + " WHERE " + condition;
         console.log("updateOne queryString", queryString);
 
         connection.query(queryString, function(err, results) {
-            if (err) {
-                console.log("updateOne err", err);
+            if (err) 
+            {
+                console.log("updateOne error", err);
                 throw err
             }
 

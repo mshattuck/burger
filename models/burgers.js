@@ -1,4 +1,4 @@
-var orm = require("../config/orm.js");
+const orm = require("../config/orm.js");
 
 //select, create, and update burgers in db
 let burger_model = 
