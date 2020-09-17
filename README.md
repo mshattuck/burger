@@ -31,6 +31,8 @@ For quesitons, email at:
         github at:  
  
         https://github.com/mshattuck
+        
+        https://mshattuck.github.io/aboutme/
 
         
 
